@@ -24,7 +24,8 @@ export default function FingerprintScan({ onFinish }) {
       setStatus("All fingers scanned — Finished");
       setDone(true);
     }
-  }, [scanned]);
+  }, [scanned, fingers.length]);
+  
 
   return (
     <div className="finger-container">
