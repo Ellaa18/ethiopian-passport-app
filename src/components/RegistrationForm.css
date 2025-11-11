@@ -17,8 +17,8 @@ body {
   }
   
   .logo-small {
-    width: 90%;
-    max-width: 300px;
+    width: 95%;
+    max-width: 360px;
     height: auto;
     object-fit: contain;
     border-radius: 10px;

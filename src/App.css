@@ -6,11 +6,11 @@ body {
   font-size: 16px; /* slightly smaller for mobile */
 }
 
-/* Fade-in animation */
+/* Fade-in animation (FASTER) */
 .fade-in {
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.5s ease-out;
+  transform: translateY(20px);
+  transition: all 0.05s ease-out; /* faster scroll effect */
 }
 .fade-in.visible {
   opacity: 1;
@@ -24,7 +24,7 @@ body {
   100% { transform: translateY(0px); }
 }
 .animated-img {
-  animation: float 3s ease-in-out infinite;
+  animation: float 2s ease-in-out infinite;
   max-width: 90%;
   height: auto;
   border-radius: 8px;
@@ -38,10 +38,9 @@ body {
   padding: 10px 0;
 }
 .logo-small {
-  width: 90%;
-  max-width: 300px;
+  width: 95%;
+  max-width: 360px;
   height: auto;
-  object-fit: contain;
   border-radius: 10px;
 }
 
