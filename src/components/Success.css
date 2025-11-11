@@ -10,39 +10,46 @@
   .header {
     width: 100%;
     margin: 0;
-    padding: 0;
+    padding: 10px 0;
+    background: none;
+    text-align: center;
   }
   
-  .logo-full {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
+  /* ✅ Responsive logo */
+  .logo-small {
+    width: 85%;
+    max-width: 280px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
   }
   
+  /* Blue bar */
   .blue-line {
     width: 100%;
     background-color: #002e7e;
     color: white;
-    padding: 25px 0;
+    padding: 20px 0;
   }
   
   .blue-line h1 {
-    font-size: 36px;
+    font-size: 24px;
     margin: 0;
     font-weight: bold;
   }
   
   .blue-line h2 {
-    font-size: 26px;
+    font-size: 18px;
     margin: 5px 0 0;
   }
   
   /* SUCCESS BOX */
   .success-box {
     background: white;
-    width: 60%;
-    margin: 80px auto;
-    padding: 60px 40px;
+    width: 90%;
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 40px 25px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 46, 126, 0.2);
     animation: fadeIn 1s ease;
@@ -50,28 +57,28 @@
   
   .success-box h2 {
     color: #002e7e;
-    font-size: 32px;
-    margin-top: 30px;
+    font-size: 24px;
+    margin-top: 25px;
   }
   
   .success-box p {
-    font-size: 20px;
+    font-size: 16px;
     color: #333;
-    margin: 20px auto 40px;
-    width: 80%;
+    margin: 20px auto 30px;
+    width: 90%;
   }
   
   /* Checkmark Animation */
   .checkmark-circle {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     position: relative;
     display: inline-block;
   }
   
   .checkmark-circle .background {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     background-color: #e6f3ff;
     position: absolute;
@@ -79,12 +86,12 @@
   
   .checkmark-circle .checkmark {
     border-radius: 5px;
-    height: 75px;
-    width: 37px;
+    height: 60px;
+    width: 30px;
     transform: rotate(45deg);
     position: absolute;
-    top: 35px;
-    left: 55px;
+    top: 28px;
+    left: 45px;
   }
   
   .checkmark.draw::after {
@@ -92,8 +99,8 @@
     position: absolute;
     width: 10px;
     height: 0;
-    border-left: 8px solid #00b140;
-    border-bottom: 8px solid #00b140;
+    border-left: 6px solid #00b140;
+    border-bottom: 6px solid #00b140;
     animation: draw-check 0.8s ease forwards;
   }
   
@@ -103,12 +110,12 @@
       width: 0;
     }
     50% {
-      height: 40px;
+      height: 35px;
       width: 0;
     }
     100% {
-      height: 40px;
-      width: 20px;
+      height: 35px;
+      width: 18px;
     }
   }
   
@@ -116,8 +123,8 @@
   .home-btn {
     background-color: #002e7e;
     color: white;
-    font-size: 22px;
-    padding: 16px 50px;
+    font-size: 18px;
+    padding: 14px 40px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -138,6 +145,56 @@
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+  
+  /* ✅ MOBILE RESPONSIVE */
+  @media (max-width: 480px) {
+    .logo-small {
+      max-width: 220px;
+    }
+  
+    .blue-line h1 {
+      font-size: 18px;
+    }
+  
+    .blue-line h2 {
+      font-size: 16px;
+    }
+  
+    .success-box {
+      width: 90%;
+      padding: 25px 15px;
+    }
+  
+    .success-box h2 {
+      font-size: 20px;
+    }
+  
+    .success-box p {
+      font-size: 14px;
+    }
+  
+    .home-btn {
+      font-size: 16px;
+      padding: 10px 30px;
+    }
+  
+    .checkmark-circle {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .checkmark-circle .background {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .checkmark-circle .checkmark {
+      top: 24px;
+      left: 38px;
+      height: 50px;
+      width: 25px;
     }
   }
   

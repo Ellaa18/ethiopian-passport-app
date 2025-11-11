@@ -7,7 +7,7 @@ export default function Success() {
     <div className="success-container">
       {/* HEADER */}
       <header className="header">
-        <img src={logo} alt="Logo" className="logo-full" />
+        <img src={logo} alt="Logo" className="logo-small" />
       </header>
 
       <div className="blue-line">

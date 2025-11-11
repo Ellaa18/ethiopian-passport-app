@@ -3,7 +3,7 @@ body {
   font-family: "Segoe UI", sans-serif;
   background-color: #f3f5fa;
   overflow-x: hidden;
-  font-size: 18px;
+  font-size: 16px; /* slightly smaller for mobile */
 }
 
 /* Fade-in animation */
@@ -25,17 +25,24 @@ body {
 }
 .animated-img {
   animation: float 3s ease-in-out infinite;
+  max-width: 90%;
+  height: auto;
+  border-radius: 8px;
 }
 
 /* HEADER */
 .header {
   width: 100%;
   background: none;
+  text-align: center;
+  padding: 10px 0;
 }
-.logo-full {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
+.logo-small {
+  width: 90%;
+  max-width: 300px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
 }
 
 /* BLUE BAR */
@@ -47,19 +54,21 @@ body {
   text-align: center;
 }
 .header-text h1 {
-  font-size: 22px;
+  font-size: 20px;
   margin: 0;
+  line-height: 1.4;
 }
 
 /* MAP */
 .map-section {
   width: 100%;
-  overflow: hidden;
+  text-align: center;
 }
-.map-big {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
+.map-small {
+  width: 90%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 10px;
 }
 
 /* MAIN CARDS */
@@ -67,27 +76,27 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 15px;
+  padding: 10px;
 }
 .main-card {
-  width: 90%;
+  width: 95%;
   background: #f9fbfb;
-  padding: 25px;
+  padding: 18px;
   border-radius: 10px;
   text-align: center;
-  font-size: 18px;
-  margin-bottom: 20px;
+  font-size: 16px;
+  margin-bottom: 15px;
   border: 1px solid #ddd;
   transition: all 0.3s ease;
 }
 .main-card h3 {
   color: #002e7e;
-  font-size: 22px;
-  margin-bottom: 10px;
+  font-size: 18px;
+  margin-bottom: 8px;
 }
 .main-card p {
-  font-size: 18px;
-  line-height: 1.6;
+  font-size: 15px;
+  line-height: 1.5;
 }
 .main-card:hover {
   background-color: #002e7e;
@@ -98,13 +107,13 @@ body {
 /* BUTTON */
 .continue-btn-section {
   text-align: center;
-  padding: 25px;
+  padding: 20px;
 }
 .continue-btn-section button {
   background-color: #002e7e;
   color: white;
-  font-size: 20px;
-  padding: 14px 40px;
+  font-size: 18px;
+  padding: 12px 30px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
@@ -115,39 +124,47 @@ body {
   width: 100%;
   background: white;
   text-align: center;
-  padding: 25px 0;
+  padding: 20px 10px;
 }
 .how-to-apply h2 {
   color: #002e7e;
-  font-size: 26px;
-  margin-bottom: 20px;
+  font-size: 22px;
+  margin-bottom: 15px;
 }
 .apply-card {
-  width: 100%;
-  padding: 25px 10px;
+  width: 95%;
+  margin: 0 auto 15px;
+  padding: 20px 10px;
   background: #f8faff;
-  margin-bottom: 15px;
+  border-radius: 8px;
+}
+.apply-card img {
+  width: 80%;
+  max-width: 250px;
+  height: auto;
+  border-radius: 8px;
 }
 .apply-card h3 {
   color: #002e7e;
-  font-size: 20px;
+  font-size: 18px;
 }
 .apply-card p {
-  font-size: 18px;
-  line-height: 1.6;
+  font-size: 15px;
+  line-height: 1.5;
 }
 .apply-card button {
   background-color: #002e7e;
   color: white;
   border: none;
-  padding: 10px 22px;
+  padding: 8px 18px;
   border-radius: 6px;
-  font-size: 16px;
+  font-size: 15px;
+  margin-top: 8px;
 }
 .apply-card.large ul {
-  font-size: 18px;
-  padding-left: 25px;
-  line-height: 1.8;
+  font-size: 15px;
+  padding-left: 20px;
+  line-height: 1.6;
 }
 
 /* FOOTER */
@@ -155,30 +172,37 @@ body {
   background: rgba(0, 0, 0, 0.9);
   color: white;
   text-align: center;
-  padding: 25px 0;
+  padding: 20px 0;
 }
 .footer-card {
   background: rgba(0, 0, 0, 0.6);
-  margin: 10px;
-  padding: 20px 10px;
+  margin: 8px;
+  padding: 15px 10px;
   border-radius: 8px;
 }
 .footer-card h3 {
   color: #ffdd00;
-  font-size: 20px;
+  font-size: 18px;
 }
 .footer-card p {
-  font-size: 18px;
-  line-height: 1.5;
+  font-size: 15px;
+  line-height: 1.4;
 }
 .payment-images {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
   flex-wrap: wrap;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 .payment-images img {
-  width: 80px;
+  width: 60px;
   border-radius: 6px;
+  height: auto;
+}
+
+/* RESPONSIVE FIXES */
+@media (min-width: 600px) {
+  body { font-size: 18px; }
+  .main-card, .apply-card { width: 80%; }
 }

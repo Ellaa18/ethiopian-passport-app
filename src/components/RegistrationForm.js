@@ -35,7 +35,7 @@ export default function RegistrationForm({ onSubmit }) {
     <div className="register-container">
       {/* HEADER */}
       <header className="header">
-        <img src={logo} alt="Logo" className="logo-full" />
+        <img src={logo} alt="Logo" className="logo-small" />
       </header>
 
       {/* BLUE LINE */}

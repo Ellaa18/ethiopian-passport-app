@@ -25,13 +25,12 @@ export default function FingerprintScan({ onFinish }) {
       setDone(true);
     }
   }, [scanned, fingers.length]);
-  
 
   return (
     <div className="finger-container">
       {/* HEADER */}
       <header className="header">
-        <img src={logo} alt="Logo" className="logo-full" />
+        <img src={logo} alt="Logo" className="logo-small" />
       </header>
 
       <div className="blue-line">
@@ -41,7 +40,9 @@ export default function FingerprintScan({ onFinish }) {
 
       {/* WHITE CARD */}
       <div className="finger-box">
-        <div className="blue-title">Touch and Tab tab Each Finger (4 seconds/4 times)</div>
+        <div className="blue-title">
+          Touch and Tap Each Finger (4 seconds / 4 times)
+        </div>
         <p className="scan-status">{status}</p>
 
         <div className="hand-area">
@@ -49,32 +50,42 @@ export default function FingerprintScan({ onFinish }) {
 
           {/* === FINGER SENSORS === */}
           <div
-            className={`finger-spot ${scanned.includes("Thumb") ? "scanned" : ""}`}
-            style={{ top: "180px", left: "55px" }}
+            className={`finger-spot ${
+              scanned.includes("Thumb") ? "scanned" : ""
+            }`}
+            style={{ top: "163px", left: "46px" }}
             onClick={() => handleScan("Thumb")}
           ></div>
 
           <div
-            className={`finger-spot ${scanned.includes("Index") ? "scanned" : ""}`}
-            style={{ top: "30px", left: "100px" }}
+            className={`finger-spot ${
+              scanned.includes("Index") ? "scanned" : ""
+            }`}
+            style={{ top: "26px", left: "90px" }}
             onClick={() => handleScan("Index")}
           ></div>
 
           <div
-            className={`finger-spot ${scanned.includes("Middle") ? "scanned" : ""}`}
-            style={{ top: "20px", left: "176px" }}
+            className={`finger-spot ${
+              scanned.includes("Middle") ? "scanned" : ""
+            }`}
+            style={{ top: "18px", left: "153.8px" }}
             onClick={() => handleScan("Middle")}
           ></div>
 
           <div
-            className={`finger-spot ${scanned.includes("Ring") ? "scanned" : ""}`}
-            style={{ top: "30px", left: "235px" }}
+            className={`finger-spot ${
+              scanned.includes("Ring") ? "scanned" : ""
+            }`}
+            style={{ top: "27px", left: "207px" }}
             onClick={() => handleScan("Ring")}
           ></div>
 
           <div
-            className={`finger-spot ${scanned.includes("Little") ? "scanned" : ""}`}
-            style={{ top: "74px", left: "298px" }}
+            className={`finger-spot ${
+              scanned.includes("Little") ? "scanned" : ""
+            }`}
+            style={{ top: "70px", left: "260px" }}
             onClick={() => handleScan("Little")}
           ></div>
         </div>
