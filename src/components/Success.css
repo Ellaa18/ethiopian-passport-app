@@ -1,0 +1,143 @@
+.success-container {
+    text-align: center;
+    font-family: "Segoe UI", sans-serif;
+    background-color: #f3f5fa;
+    min-height: 100vh;
+    color: #002e7e;
+  }
+  
+  /* HEADER + BLUE BAR */
+  .header {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .logo-full {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .blue-line {
+    width: 100%;
+    background-color: #002e7e;
+    color: white;
+    padding: 25px 0;
+  }
+  
+  .blue-line h1 {
+    font-size: 36px;
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  .blue-line h2 {
+    font-size: 26px;
+    margin: 5px 0 0;
+  }
+  
+  /* SUCCESS BOX */
+  .success-box {
+    background: white;
+    width: 60%;
+    margin: 80px auto;
+    padding: 60px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 46, 126, 0.2);
+    animation: fadeIn 1s ease;
+  }
+  
+  .success-box h2 {
+    color: #002e7e;
+    font-size: 32px;
+    margin-top: 30px;
+  }
+  
+  .success-box p {
+    font-size: 20px;
+    color: #333;
+    margin: 20px auto 40px;
+    width: 80%;
+  }
+  
+  /* Checkmark Animation */
+  .checkmark-circle {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .checkmark-circle .background {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #e6f3ff;
+    position: absolute;
+  }
+  
+  .checkmark-circle .checkmark {
+    border-radius: 5px;
+    height: 75px;
+    width: 37px;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 35px;
+    left: 55px;
+  }
+  
+  .checkmark.draw::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 0;
+    border-left: 8px solid #00b140;
+    border-bottom: 8px solid #00b140;
+    animation: draw-check 0.8s ease forwards;
+  }
+  
+  @keyframes draw-check {
+    0% {
+      height: 0;
+      width: 0;
+    }
+    50% {
+      height: 40px;
+      width: 0;
+    }
+    100% {
+      height: 40px;
+      width: 20px;
+    }
+  }
+  
+  /* Button */
+  .home-btn {
+    background-color: #002e7e;
+    color: white;
+    font-size: 22px;
+    padding: 16px 50px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .home-btn:hover {
+    background-color: #001d5c;
+    transform: scale(1.05);
+  }
+  
+  /* Fade in animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
