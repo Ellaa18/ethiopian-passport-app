@@ -38,6 +38,7 @@ export default function RegistrationForm({ onSubmit }) {
         <img src={logo} alt="Logo" className="logo-full" />
       </header>
 
+      {/* BLUE LINE */}
       <div className="blue-line">
         <h1>Federal Democratic Republic of Ethiopia</h1>
         <h2>Immigration and Citizenship Service</h2>
@@ -51,19 +52,45 @@ export default function RegistrationForm({ onSubmit }) {
         <div className="section">
           <div className="section-header">Personal Information</div>
 
-          <input type="text" name="firstName" placeholder="First Name" onChange={handleChange} />
-          <input type="text" name="fatherName" placeholder="Father Name" onChange={handleChange} />
-          <input type="text" name="grandfatherName" placeholder="Grandfather Name" onChange={handleChange} />
+          <input
+            type="text"
+            name="firstName"
+            placeholder="First Name"
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="fatherName"
+            placeholder="Father Name"
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="grandfatherName"
+            placeholder="Grandfather Name"
+            onChange={handleChange}
+          />
 
           <input type="date" name="dob" onChange={handleChange} />
+
           <select name="gender" onChange={handleChange}>
             <option>Gender</option>
             <option>Male</option>
             <option>Female</option>
           </select>
 
-          <input type="text" name="phone" placeholder="Phone Number" onChange={handleChange} />
-          <input type="email" name="email" placeholder="Email" onChange={handleChange} />
+          <input
+            type="text"
+            name="phone"
+            placeholder="Phone Number"
+            onChange={handleChange}
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            onChange={handleChange}
+          />
 
           <select name="passportType" onChange={handleChange}>
             <option>Passport Type</option>
@@ -83,16 +110,32 @@ export default function RegistrationForm({ onSubmit }) {
         <div className="section">
           <div className="section-header">Address Information</div>
 
-          <input type="text" name="region" placeholder="Region" onChange={handleChange} />
-          <input type="text" name="city" placeholder="City" onChange={handleChange} />
-          <input type="text" name="kebele" placeholder="Kebele" onChange={handleChange} />
+          <input
+            type="text"
+            name="region"
+            placeholder="Region"
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="city"
+            placeholder="City"
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="kebele"
+            placeholder="Kebele"
+            onChange={handleChange}
+          />
         </div>
 
         {/* Attachment Information */}
         <div className="section">
           <div className="section-header">Attachment Information</div>
           <p className="note">
-            <strong>Note:</strong> If your selected passport type is “Regular”, your previous passport is required.
+            <strong>Note:</strong> If your selected passport type is “Regular”,
+            your previous passport is required.
           </p>
 
           <label>Passport File</label>
@@ -105,7 +148,9 @@ export default function RegistrationForm({ onSubmit }) {
           <input type="file" name="birthCertificate" onChange={handleChange} />
         </div>
 
-        <button type="submit" className="submit-btn">Continue</button>
+        <button type="submit" className="submit-btn">
+          Continue
+        </button>
       </form>
     </div>
   );

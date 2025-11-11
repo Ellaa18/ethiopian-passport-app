@@ -8,13 +8,18 @@ body {
     text-align: center;
   }
   
-  /* Header logo full width */
+  /* Header logo smaller for mobile */
+  /* HEADER */
+.header {
+    width: 100%;
+    background: none;
+  }
   .logo-full {
     width: 100%;
-    height: 220px;
+    height: 160px;
     object-fit: cover;
-    display: block;
   }
+  
   
   /* Blue bar */
   .blue-line {

@@ -3,266 +3,182 @@ body {
   font-family: "Segoe UI", sans-serif;
   background-color: #f3f5fa;
   overflow-x: hidden;
+  font-size: 18px;
 }
 
 /* Fade-in animation */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
-  transition: all 1s ease-out;
+  transition: all 0.5s ease-out;
 }
-
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Floating animation for images */
+/* Floating animation */
 @keyframes float {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-6px); }
   100% { transform: translateY(0px); }
 }
-
 .animated-img {
-  animation: float 4s ease-in-out infinite;
+  animation: float 3s ease-in-out infinite;
 }
 
-/* Larger images */
-.big-img {
-  width: 250px;
-  height: auto;
-}
-
-/* Map section container */
-.map-section {
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-/* Full-width map image */
-.map-big {
-  width: 100vw;
-  height: 45vh;
-  object-fit: cover;
-  display: block;
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-
-/* HEADER FULL WIDTH LOGO */
+/* HEADER */
 .header {
   width: 100%;
   background: none;
-  padding: 0;
-  margin: 0;
 }
-
 .logo-full {
   width: 100%;
-  height: 320px;
+  height: 160px;
   object-fit: cover;
-  display: block;
 }
 
-/* BLUE BAR WITH TEXT BELOW HEADER */
+/* BLUE BAR */
 .blue-line {
   width: 100%;
   background-color: #002e7e;
   color: white;
-  padding: 30px 0;
+  padding: 15px 5px;
   text-align: center;
 }
-
 .header-text h1 {
-  font-size: 36px;
+  font-size: 22px;
   margin: 0;
-  font-weight: bold;
 }
 
-.header-text h2 {
-  font-size: 28px;
-  margin: 8px 0 0;
+/* MAP */
+.map-section {
+  width: 100%;
+  overflow: hidden;
+}
+.map-big {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
 }
 
-/* ===== MAIN SECTION ===== */
+/* MAIN CARDS */
 .main-section {
   display: flex;
   flex-direction: column;
-  width: 100%;
   align-items: center;
+  padding: 15px;
 }
-
 .main-card {
-  width: 65%;
-  background: rgb(249, 251, 251);
-  padding: 50px;
-  border-radius: 15px;
+  width: 90%;
+  background: #f9fbfb;
+  padding: 25px;
+  border-radius: 10px;
   text-align: center;
-  font-size: 24px;
-  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.1);
-  margin-bottom: 40px;
-  cursor: pointer;
+  font-size: 18px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
   transition: all 0.3s ease;
-  border: 2px solid transparent;
 }
-
-/* Header text inside card */
 .main-card h3 {
   color: #002e7e;
-  font-size: 32px;
-  margin-bottom: 15px;
-  transition: color 0.3s ease;
+  font-size: 22px;
+  margin-bottom: 10px;
 }
-
-/* Paragraph inside card */
 .main-card p {
-  color: #333;
-  transition: color 0.3s ease;
+  font-size: 18px;
+  line-height: 1.6;
 }
-
-/* Hover effect — blue background and white text */
 .main-card:hover {
   background-color: #002e7e;
   color: white;
-  transform: translateY(-5px);
-  border: 2px solid #001d5c;
-  box-shadow: 0 8px 20px rgba(0, 46, 126, 0.3);
+  transform: scale(1.02);
 }
 
-/* Text color changes to white on hover */
-.main-card:hover h3,
-.main-card:hover p {
-  color: white;
-}
-
-/* Click (active) effect — slightly pressed look */
-.main-card:active {
-  transform: scale(0.97);
-  background-color: #001d5c;
-  box-shadow: 0 4px 10px rgba(0, 46, 126, 0.2);
-}
-
-/* CONTINUE BUTTON */
+/* BUTTON */
 .continue-btn-section {
   text-align: center;
-  background-color: #f8faff;
-  padding: 60px;
+  padding: 25px;
 }
-
 .continue-btn-section button {
   background-color: #002e7e;
   color: white;
-  font-size: 26px;
-  padding: 20px 60px;
-  border-radius: 10px;
+  font-size: 20px;
+  padding: 14px 40px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
 }
 
-.continue-btn-section button:hover {
-  background-color: #001d5c;
-}
-
-/* ===== HOW TO APPLY ===== */
+/* HOW TO APPLY */
 .how-to-apply {
   width: 100%;
   background: white;
   text-align: center;
-  padding: 80px 0;
+  padding: 25px 0;
 }
-
 .how-to-apply h2 {
   color: #002e7e;
-  font-size: 38px;
-  margin-bottom: 50px;
+  font-size: 26px;
+  margin-bottom: 20px;
 }
-
 .apply-card {
   width: 100%;
+  padding: 25px 10px;
   background: #f8faff;
-  padding: 60px 20px;
-  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.1);
-}
-
-.apply-card h3 {
-  color: #002e7e;
-  font-size: 30px;
-}
-
-.apply-card p {
-  font-size: 22px;
   margin-bottom: 15px;
 }
-
+.apply-card h3 {
+  color: #002e7e;
+  font-size: 20px;
+}
+.apply-card p {
+  font-size: 18px;
+  line-height: 1.6;
+}
 .apply-card button {
   background-color: #002e7e;
   color: white;
   border: none;
-  padding: 14px 30px;
+  padding: 10px 22px;
   border-radius: 6px;
-  font-size: 20px;
-  cursor: pointer;
+  font-size: 16px;
 }
-
-.apply-card button:hover {
-  background-color: #001d5c;
-}
-
 .apply-card.large ul {
-  list-style: disc;
-  margin: 25px auto;
-  padding-left: 60px;
-  text-align: left;
-  font-size: 22px;
+  font-size: 18px;
+  padding-left: 25px;
   line-height: 1.8;
 }
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 .footer {
   background: rgba(0, 0, 0, 0.9);
   color: white;
-  width: 100%;
   text-align: center;
-  padding: 70px 0;
+  padding: 25px 0;
 }
-
 .footer-card {
-  width: 100%;
-  max-width: 1300px;
   background: rgba(0, 0, 0, 0.6);
-  margin: 25px auto;
-  padding: 40px 25px;
-  border-radius: 10px;
+  margin: 10px;
+  padding: 20px 10px;
+  border-radius: 8px;
 }
-
 .footer-card h3 {
   color: #ffdd00;
-  font-size: 28px;
+  font-size: 20px;
 }
-
 .footer-card p {
-  font-size: 22px;
+  font-size: 18px;
+  line-height: 1.5;
 }
-
 .payment-images {
   display: flex;
   justify-content: center;
-  gap: 40px;
-  margin-top: 25px;
+  gap: 15px;
   flex-wrap: wrap;
+  margin-top: 10px;
 }
-
 .payment-images img {
-  width: 160px;
-  height: auto;
-  border-radius: 10px;
-  transition: transform 0.3s;
-}
-
-.payment-images img:hover {
-  transform: scale(1.1);
+  width: 80px;
+  border-radius: 6px;
 }

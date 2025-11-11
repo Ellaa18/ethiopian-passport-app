@@ -41,7 +41,7 @@ export default function FingerprintScan({ onFinish }) {
 
       {/* WHITE CARD */}
       <div className="finger-box">
-        <div className="blue-title">Touch and Hold Each Finger (4 seconds)</div>
+        <div className="blue-title">Touch and Tab tab Each Finger (4 seconds/4 times)</div>
         <p className="scan-status">{status}</p>
 
         <div className="hand-area">
