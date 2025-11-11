@@ -130,12 +130,19 @@ body {
       font-size: 16px;
     }
   
+    /* 🔹 Smaller form on mobile */
     .register-form {
-      width: 95%;
-      padding: 18px;
+      width: 88%;
+      padding: 15px;
+      margin: 20px auto;
+    }
+  
+    .register-form h2 {
+      font-size: 18px;
     }
   }
   
+  /* Larger screens */
   @media (min-width: 600px) {
     .logo-small {
       max-width: 420px;

@@ -53,7 +53,7 @@ export default function FingerprintScan({ onFinish }) {
             className={`finger-spot ${
               scanned.includes("Thumb") ? "scanned" : ""
             }`}
-            style={{ top: "163px", left: "46px" }}
+            style={{ top: "185px", left: "53px" }}
             onClick={() => handleScan("Thumb")}
           ></div>
 
@@ -61,7 +61,7 @@ export default function FingerprintScan({ onFinish }) {
             className={`finger-spot ${
               scanned.includes("Index") ? "scanned" : ""
             }`}
-            style={{ top: "26px", left: "90px" }}
+            style={{ top: "29px", left: "97px" }}
             onClick={() => handleScan("Index")}
           ></div>
 
@@ -69,7 +69,7 @@ export default function FingerprintScan({ onFinish }) {
             className={`finger-spot ${
               scanned.includes("Middle") ? "scanned" : ""
             }`}
-            style={{ top: "18px", left: "153.8px" }}
+            style={{ top: "18px", left: "172.8px" }}
             onClick={() => handleScan("Middle")}
           ></div>
 
@@ -77,7 +77,7 @@ export default function FingerprintScan({ onFinish }) {
             className={`finger-spot ${
               scanned.includes("Ring") ? "scanned" : ""
             }`}
-            style={{ top: "27px", left: "207px" }}
+            style={{ top: "28px", left: "229px" }}
             onClick={() => handleScan("Ring")}
           ></div>
 
@@ -85,7 +85,7 @@ export default function FingerprintScan({ onFinish }) {
             className={`finger-spot ${
               scanned.includes("Little") ? "scanned" : ""
             }`}
-            style={{ top: "70px", left: "260px" }}
+            style={{ top: "70px", left: "290px" }}
             onClick={() => handleScan("Little")}
           ></div>
         </div>
