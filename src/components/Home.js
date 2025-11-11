@@ -149,6 +149,9 @@ export default function Home({ onStart }) {
             <a href="https://www.mastercard.com/" target="_blank" rel="noopener noreferrer">
               <img src={mastercard} alt="Mastercard" />
             </a>
+            <footer className="footer">
+        <p>© 2025 Ethiopian Passport Service. All rights reserved.</p>
+      </footer>
           </div>
         </div>
       </footer>
