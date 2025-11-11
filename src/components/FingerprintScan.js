@@ -50,41 +50,31 @@ export default function FingerprintScan({ onFinish }) {
 
           {/* === FINGER SENSORS === */}
           <div
-            className={`finger-spot ${
-              scanned.includes("Thumb") ? "scanned" : ""
-            }`}
-            style={{ top: "185px", left: "53px" }}
+            className={`finger-spot ${scanned.includes("Thumb") ? "scanned" : ""}`}
+            style={{ top: "170px", left: "65px" }}
             onClick={() => handleScan("Thumb")}
           ></div>
 
           <div
-            className={`finger-spot ${
-              scanned.includes("Index") ? "scanned" : ""
-            }`}
+            className={`finger-spot ${scanned.includes("Index") ? "scanned" : ""}`}
             style={{ top: "29px", left: "97px" }}
             onClick={() => handleScan("Index")}
           ></div>
 
           <div
-            className={`finger-spot ${
-              scanned.includes("Middle") ? "scanned" : ""
-            }`}
+            className={`finger-spot ${scanned.includes("Middle") ? "scanned" : ""}`}
             style={{ top: "18px", left: "172.8px" }}
             onClick={() => handleScan("Middle")}
           ></div>
 
           <div
-            className={`finger-spot ${
-              scanned.includes("Ring") ? "scanned" : ""
-            }`}
+            className={`finger-spot ${scanned.includes("Ring") ? "scanned" : ""}`}
             style={{ top: "28px", left: "229px" }}
             onClick={() => handleScan("Ring")}
           ></div>
 
           <div
-            className={`finger-spot ${
-              scanned.includes("Little") ? "scanned" : ""
-            }`}
+            className={`finger-spot ${scanned.includes("Little") ? "scanned" : ""}`}
             style={{ top: "70px", left: "290px" }}
             onClick={() => handleScan("Little")}
           ></div>
