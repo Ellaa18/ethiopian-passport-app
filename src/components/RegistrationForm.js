@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../assets/logo.jpg";
+import logo from "../assets/logo.webp";
 import "./RegistrationForm.css";
 
 export default function RegistrationForm({ onSubmit }) {

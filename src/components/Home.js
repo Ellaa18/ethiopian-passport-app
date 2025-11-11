@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import "../App.css";
-import cbe from "../assets/cbe.jpg";
-import expired from "../assets/expired.jpg";
-import flag from "../assets/flag.jpg";
-import laptop from "../assets/laptop.jpg";
-import logo from "../assets/logo.jpg";
-import map from "../assets/map.jpg";
-import mastercard from "../assets/mastercard.jpg";
-import passport from "../assets/passport.jpg";
-import telebirr from "../assets/telebirr.jpg";
-import visa from "../assets/visacard.jpg";
-import yellowCard from "../assets/yellow-card.jpg";
+import cbe from "../assets/cbe.webp";
+import expired from "../assets/expired.webp";
+import flag from "../assets/flag.webp";
+import laptop from "../assets/laptop.webp";
+import logo from "../assets/logo.webp";
+import map from "../assets/map.webp";
+import mastercard from "../assets/mastercard.webp";
+import passport from "../assets/passport.webp";
+import telebirr from "../assets/telebirr.webp";
+import visa from "../assets/visacard.webp";
+import yellowCard from "../assets/yellow-card.webp";
 
 export default function Home({ onStart }) {
   useEffect(() => {

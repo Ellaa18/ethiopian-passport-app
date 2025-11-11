@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import hand from "../assets/fingerprint.jpg"; // replace with your hand image
-import logo from "../assets/logo.jpg"; // replace with your actual logo
+import hand from "../assets/fingerprint.webp"; // replace with your hand image
+import logo from "../assets/logo.webp"; // replace with your actual logo
 import "./FingerprintScan.css";
 
 export default function FingerprintScan({ onFinish }) {
