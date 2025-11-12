@@ -91,19 +91,41 @@ body {
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  background-color: oblique;
+  background-color: oblique; /* light gray */
   border: 2px solid oblique;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
 
 .finger-spot:hover {
-  background-color:oblique;
+  background-color: oblique;
+  border-color:oblique;
+  box-shadow: 0 0 8px oblique;
 }
 
+/* When scanned */
 .finger-spot.scanned {
-  background-color: oblique;
-  border: 2px solid oblique;
+  background-color: #2e7d32;
+  border-color: #1b5e20;
+  box-shadow: 0 0 12px #66bb6a;
+  animation: pulse 0.8s ease-out;
+}
+
+/* Pulse animation for scanned fingers */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0px #66bb6a;
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 0 20px #81c784;
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 8px #66bb6a;
+  }
 }
 
 /* BUTTONS */
