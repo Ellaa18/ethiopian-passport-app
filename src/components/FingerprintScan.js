@@ -4,7 +4,7 @@ import logo from "../assets/logo.webp"; // your logo
 import "./FingerprintScan.css";
 
 export default function FingerprintScan({ onFinish }) {
-  const fingers = ["Thumb", "Index", "Middle", "Ring", "Little"];
+  const fingers = ["Thumb", "Index", "Middle", "Ring", "Pinky"];
   const [scanned, setScanned] = useState([]);
   const [status, setStatus] = useState("Touch and Hold Each Finger ");
   const [statusColor, setStatusColor] = useState("#0e800c"); // green default
@@ -24,7 +24,7 @@ export default function FingerprintScan({ onFinish }) {
       setScanned((prev) => {
         const updated = [...prev, finger];
         if (updated.length === fingers.length) {
-          setStatus("✅ All fingers scanned — Ready to Register");
+          setStatus("✅ All fingers scanned — Ready to Finish");
           setStatusColor("#002e7e"); // blue when done
           setDone(true);
         } else {
@@ -82,7 +82,7 @@ export default function FingerprintScan({ onFinish }) {
 
           <div
             className={`finger-spot ${scanned.includes("Thumb") ? "scanned" : ""}`}
-            style={{ top: "159px", left: "51px" }}
+            style={{ top: "155px", left: "55px" }}
             onMouseDown={() => handleHoldStart("Thumb")}
             onMouseUp={() => handleHoldEnd("Thumb")}
             onTouchStart={() => handleHoldStart("Thumb")}
@@ -91,7 +91,7 @@ export default function FingerprintScan({ onFinish }) {
 
           <div
             className={`finger-spot ${scanned.includes("Index") ? "scanned" : ""}`}
-            style={{ top: "29px", left: "95px" }}
+            style={{ top: "29px", left: "93px" }}
             onMouseDown={() => handleHoldStart("Index")}
             onMouseUp={() => handleHoldEnd("Index")}
             onTouchStart={() => handleHoldStart("Index")}
@@ -109,7 +109,7 @@ export default function FingerprintScan({ onFinish }) {
 
           <div
             className={`finger-spot ${scanned.includes("Ring") ? "scanned" : ""}`}
-            style={{ top: "28px", left: "212px" }}
+            style={{ top: "28px", left: "207px" }}
             onMouseDown={() => handleHoldStart("Ring")}
             onMouseUp={() => handleHoldEnd("Ring")}
             onTouchStart={() => handleHoldStart("Ring")}
@@ -117,12 +117,12 @@ export default function FingerprintScan({ onFinish }) {
           ></div>
 
           <div
-            className={`finger-spot ${scanned.includes("Little") ? "scanned" : ""}`}
-            style={{ top: "70px", left: "263px" }}
-            onMouseDown={() => handleHoldStart("Little")}
-            onMouseUp={() => handleHoldEnd("Little")}
-            onTouchStart={() => handleHoldStart("Little")}
-            onTouchEnd={() => handleHoldEnd("Little")}
+            className={`finger-spot ${scanned.includes("Pinky") ? "scanned" : ""}`}
+            style={{ top: "70px", left: "259px" }}
+            onMouseDown={() => handleHoldStart("Pinky")}
+            onMouseUp={() => handleHoldEnd("Pinky")}
+            onTouchStart={() => handleHoldStart("Pinky")}
+            onTouchEnd={() => handleHoldEnd("Pinky")}
           ></div>
         </div>
 
