@@ -88,11 +88,11 @@ body {
 /* CLICKABLE SPOTS */
 .finger-spot {
   position: absolute;
-  width: 47px;
-  height: 47px;
-  border-radius: 60%;
-  background-color: rgba(226, 226, 228, 0.3);
-  border: 2px solid #a6a7a7;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: oblique;
+  border: 2px solid #cbcccc;
   cursor: pointer;
   transition: all 0.3s ease;
 }

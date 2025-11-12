@@ -63,19 +63,19 @@ export default function FingerprintScan({ onFinish }) {
 
           <div
             className={`finger-spot ${scanned.includes("Middle") ? "scanned" : ""}`}
-            style={{ top: "18px", left: "169.8px" }}
+            style={{ top: "18px", left: "165.8px" }}
             onClick={() => handleScan("Middle")}
           ></div>
 
           <div
             className={`finger-spot ${scanned.includes("Ring") ? "scanned" : ""}`}
-            style={{ top: "28px", left: "219px" }}
+            style={{ top: "28px", left: "214px" }}
             onClick={() => handleScan("Ring")}
           ></div>
 
           <div
             className={`finger-spot ${scanned.includes("Little") ? "scanned" : ""}`}
-            style={{ top: "70px", left: "275px" }}
+            style={{ top: "70px", left: "270px" }}
             onClick={() => handleScan("Little")}
           ></div>
         </div>
