@@ -51,7 +51,7 @@ export default function FingerprintScan({ onFinish }) {
           {/* === FINGER SENSORS === */}
           <div
             className={`finger-spot ${scanned.includes("Thumb") ? "scanned" : ""}`}
-            style={{ top: "170px", left: "65px" }}
+            style={{ top: "160px", left: "65px" }}
             onClick={() => handleScan("Thumb")}
           ></div>
 
@@ -63,19 +63,19 @@ export default function FingerprintScan({ onFinish }) {
 
           <div
             className={`finger-spot ${scanned.includes("Middle") ? "scanned" : ""}`}
-            style={{ top: "18px", left: "172.8px" }}
+            style={{ top: "18px", left: "169.8px" }}
             onClick={() => handleScan("Middle")}
           ></div>
 
           <div
             className={`finger-spot ${scanned.includes("Ring") ? "scanned" : ""}`}
-            style={{ top: "28px", left: "229px" }}
+            style={{ top: "28px", left: "211px" }}
             onClick={() => handleScan("Ring")}
           ></div>
 
           <div
             className={`finger-spot ${scanned.includes("Little") ? "scanned" : ""}`}
-            style={{ top: "70px", left: "290px" }}
+            style={{ top: "70px", left: "265px" }}
             onClick={() => handleScan("Little")}
           ></div>
         </div>

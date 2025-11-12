@@ -100,7 +100,7 @@ export default function Home({ onStart }) {
         <div className="apply-card fade-in">
           <img src={yellowCard} alt="Yellow Card" className="animated-img" />
           <h3>Origin ID / Yellow Card</h3>
-          <p>Apply for or renew your Ethiopian Yellow Card.</p>
+          <p>Apply for new card or renew your Yellow Card.</p>
           <button>See More</button>
         </div>
 
