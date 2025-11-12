@@ -32,16 +32,17 @@ export default function Home({ onStart }) {
   return (
     <div className="home-container">
       {/* HEADER IMAGE (smaller) */}
-      <header className="header fade-in">
+      <header className="header">
         <img src={logo} alt="Logo" className="logo-small" />
       </header>
 
       {/* BLUE BAR WITH TEXT */}
       <div className="blue-line">
-        <div className="header-text">
+        
+      </div>
+      <div className="header-text">
           <h1>Welcome to Ethiopian Passport Services</h1>
         </div>
-      </div>
 
       {/* MAP IMAGE */}
       <div className="map-section fade-in">

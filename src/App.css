@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: "Segoe UI", sans-serif;
-  background-color: #f3f5fa;
+  background-color: #f6f6f7e4;
   overflow-x: hidden;
   font-size: 16px; /* slightly smaller for mobile */
 }
@@ -17,17 +17,26 @@ body {
   transform: translateY(0);
 }
 
-/* Floating animation */
+/* Floating animation (UPDATED – smoother + slight scale) */
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-6px); }
-  100% { transform: translateY(0px); }
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+  25% {
+    transform: translateY(-4px) scale(1.02);
+  }
+  50% {
+    transform: translateY(-8px) scale(1);
+  }
+ 
 }
+
 .animated-img {
-  animation: float 2s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite; /* smoother floating loop */
   max-width: 90%;
   height: auto;
   border-radius: 8px;
+  transition: transform 0.3s ease;
 }
 
 /* HEADER */
@@ -52,8 +61,17 @@ body {
   padding: 15px 5px;
   text-align: center;
 }
+.header-text{ 
+  text-align: center;
+  font-size: 25px;
+  padding: 15px 0;
+  margin: 0;
+  line-height: 1.6;
+  color: #063077;
+
+}
 .header-text h1 {
-  font-size: 20px;
+  font-size: 30px;
   margin: 0;
   line-height: 1.4;
 }
@@ -62,12 +80,16 @@ body {
 .map-section {
   width: 100%;
   text-align: center;
+  margin: 0;
+  padding: 0;
 }
 .map-small {
-  width: 90%;
-  max-width: 350px;
+  width: 100%;
+  max-width: none;
   height: auto;
-  border-radius: 10px;
+  border-radius: 0;
+  display: block;
+  object-fit: cover;
 }
 
 /* MAIN CARDS */
@@ -75,30 +97,30 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
+  padding: 25px;
 }
 .main-card {
   width: 95%;
-  background: #f9fbfb;
+  background: #efffff;
   padding: 18px;
-  border-radius: 10px;
+  border-radius: 18px;
   text-align: center;
   font-size: 16px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
+  margin-bottom: 18px;
+  border: 1px solid #d0d0d0;
   transition: all 0.3s ease;
 }
 .main-card h3 {
-  color: #002e7e;
-  font-size: 18px;
-  margin-bottom: 8px;
+  color: #041f4f;
+  font-size: 20px;
+  margin-bottom: 1px;
 }
 .main-card p {
-  font-size: 15px;
-  line-height: 1.5;
+  font-size: 18px;
+  line-height: 1.4;
 }
 .main-card:hover {
-  background-color: #002e7e;
+  background-color: #2260cb;
   color: white;
   transform: scale(1.02);
 }
@@ -123,10 +145,11 @@ body {
   width: 100%;
   background: white;
   text-align: center;
+  
   padding: 20px 10px;
 }
 .how-to-apply h2 {
-  color: #002e7e;
+  color: #070707;
   font-size: 22px;
   margin-bottom: 15px;
 }
@@ -134,36 +157,38 @@ body {
   width: 95%;
   margin: 0 auto 15px;
   padding: 20px 10px;
-  background: #f8faff;
+  border: 1px solid #d0d0d0;
+  background: #f8f8f9;
   border-radius: 8px;
 }
 .apply-card img {
   width: 80%;
-  max-width: 250px;
+  max-width: 270px;
   height: auto;
   border-radius: 8px;
+ 
 }
 .apply-card h3 {
-  color: #002e7e;
-  font-size: 18px;
+  color: #0a0a0a;
+  font-size: 20px;
 }
 .apply-card p {
-  font-size: 15px;
+  font-size: 17.5px;
   line-height: 1.5;
 }
 .apply-card button {
-  background-color: #002e7e;
+  background-color: #1e61d3;
   color: white;
   border: none;
   padding: 8px 18px;
-  border-radius: 6px;
+  border-radius: 16px;
   font-size: 15px;
   margin-top: 8px;
 }
 .apply-card.large ul {
-  font-size: 15px;
-  padding-left: 20px;
-  line-height: 1.6;
+  font-size: 18px;
+  padding-left: 25px;
+  line-height: 2;
 }
 
 /* FOOTER */
@@ -180,7 +205,7 @@ body {
   border-radius: 8px;
 }
 .footer-card h3 {
-  color: #ffdd00;
+  color: #faf9f6;
   font-size: 18px;
 }
 .footer-card p {
@@ -202,6 +227,11 @@ body {
 
 /* RESPONSIVE FIXES */
 @media (min-width: 600px) {
-  body { font-size: 18px; }
-  .main-card, .apply-card { width: 80%; }
+  body {
+    font-size: 18px;
+  }
+  .main-card,
+  .apply-card {
+    width: 80%;
+  }
 }
