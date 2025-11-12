@@ -68,7 +68,7 @@ body {
 .scan-status {
   font-size: 16px;
   margin: 15px 0;
-  color: #333;
+  font-weight: bold;
 }
 
 /* HAND IMAGE AREA */
@@ -92,13 +92,13 @@ body {
   height: 35px;
   border-radius: 50%;
   background-color: oblique;
-  border: 2px solid #cbcccc;
+  border: 2px solid oblique;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .finger-spot:hover {
-  background-color: rgba(183, 183, 184, 0.6);
+  background-color: rgba(212, 211, 210, 0.837);
 }
 
 .finger-spot.scanned {
@@ -106,20 +106,28 @@ body {
   border: 2px solid #007a00;
 }
 
-/* FINISH BUTTON */
-.finish-btn {
+/* BUTTONS */
+.button-area {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.finish-btn,
+.register-btn {
   background-color: #002e7e;
   color: white;
   border: none;
-  padding: 12px 35px;
+  padding: 12px 30px;
   border-radius: 8px;
-  font-size: 18px;
-  margin-top: 20px;
+  font-size: 17px;
   cursor: pointer;
   transition: 0.3s ease;
 }
 
-.finish-btn:hover {
+.finish-btn:hover,
+.register-btn:hover {
   background-color: #001d5c;
 }
 
@@ -158,8 +166,9 @@ body {
     font-size: 14px;
   }
 
-  .finish-btn {
-    font-size: 16px;
-    padding: 10px 30px;
+  .finish-btn,
+  .register-btn {
+    font-size: 15px;
+    padding: 10px 25px;
   }
 }

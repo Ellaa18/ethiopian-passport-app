@@ -7,21 +7,26 @@ export default function FingerprintScan({ onFinish }) {
   const fingers = ["Thumb", "Index", "Middle", "Ring", "Little"];
   const [scanned, setScanned] = useState([]);
   const [status, setStatus] = useState("Touch and Hold Each Finger (4 seconds)");
+  const [statusColor, setStatusColor] = useState("#0e800c"); // default green
   const [done, setDone] = useState(false);
 
   const handleScan = (finger) => {
     if (scanned.includes(finger)) return;
 
     setStatus(`Scanning ${finger}...`);
+    setStatusColor("#d4a017"); // amber/yellow while scanning
+
     setTimeout(() => {
       setScanned([...scanned, finger]);
       setStatus(`${finger} Scanned`);
+      setStatusColor("#007a00"); // green after scanned
     }, 1200);
   };
 
   useEffect(() => {
     if (scanned.length === fingers.length) {
-      setStatus("All fingers scanned — Finished");
+      setStatus("✅ All fingers scanned — Ready to Register");
+      setStatusColor("#002e7e"); // blue when finished
       setDone(true);
     }
   }, [scanned, fingers.length]);
@@ -43,7 +48,9 @@ export default function FingerprintScan({ onFinish }) {
         <div className="blue-title">
           Touch and Tap Each Finger (4 seconds / 4 times)
         </div>
-        <p className="scan-status">{status}</p>
+        <p className="scan-status" style={{ color: statusColor }}>
+          {status}
+        </p>
 
         <div className="hand-area">
           <img src={hand} alt="Hand" className="hand-img" />
@@ -80,11 +87,16 @@ export default function FingerprintScan({ onFinish }) {
           ></div>
         </div>
 
-        {/* Finish Button */}
+        {/* Finish + Register Buttons */}
         {done && (
-          <button className="finish-btn" onClick={onFinish}>
-            Finish
-          </button>
+          <div className="button-area">
+            <button className="finish-btn" onClick={onFinish}>
+              Finish
+            </button>
+            <button className="register-btn" onClick={onFinish}>
+              Register
+            </button>
+          </div>
         )}
       </div>
     </div>
