@@ -24,10 +24,10 @@ export default function RegistrationForm({ onSubmit }) {
   const [isRegistered, setIsRegistered] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  // ✅ Check localStorage for previous registration
+  // ✅ Check localStorage for previous registration (after fingerprint done)
   useEffect(() => {
-    const registered = localStorage.getItem("registeredUser");
-    if (registered) setIsRegistered(true);
+    const fingerprintDone = localStorage.getItem("fingerprintDone");
+    if (fingerprintDone) setIsRegistered(true);
   }, []);
 
   const handleChange = (e) => {
@@ -38,23 +38,23 @@ export default function RegistrationForm({ onSubmit }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // ✅ Stop duplicate registration
+    // ✅ Allow form submission to fingerprint page
+    // (block only after fingerprint step is done)
     if (isRegistered) {
-      alert("You have already registered.");
+      alert("You have already completed registration.");
       return;
     }
 
-    // Save registration info in browser storage
-    localStorage.setItem("registeredUser", JSON.stringify(formData));
+    // Temporarily store form data before fingerprint step
+    localStorage.setItem("pendingRegistration", JSON.stringify(formData));
 
     setSubmitted(true);
-    setIsRegistered(true);
 
-    // Go to next page
+    // Proceed to fingerprint page
     onSubmit(formData);
   };
 
-  // ✅ If user already registered (even after reload)
+  // ✅ If fingerprint done (final block)
   if (isRegistered && !submitted) {
     return (
       <div className="already-registered">
