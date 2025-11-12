@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../assets/logo.webp";
 import "./RegistrationForm.css";
 
@@ -21,6 +21,15 @@ export default function RegistrationForm({ onSubmit }) {
     birthCertificate: null,
   });
 
+  const [isRegistered, setIsRegistered] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  // ✅ Check localStorage for previous registration
+  useEffect(() => {
+    const registered = localStorage.getItem("registeredUser");
+    if (registered) setIsRegistered(true);
+  }, []);
+
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     setFormData({ ...formData, [name]: files ? files[0] : value });
@@ -29,10 +38,31 @@ export default function RegistrationForm({ onSubmit }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // no localStorage restriction
-    // move to fingerprint scan page
+    // ✅ Stop duplicate registration
+    if (isRegistered) {
+      alert("You have already registered.");
+      return;
+    }
+
+    // Save registration info in browser storage
+    localStorage.setItem("registeredUser", JSON.stringify(formData));
+
+    setSubmitted(true);
+    setIsRegistered(true);
+
+    // Go to next page
     onSubmit(formData);
   };
+
+  // ✅ If user already registered (even after reload)
+  if (isRegistered && !submitted) {
+    return (
+      <div className="already-registered">
+        <img src={logo} alt="Logo" className="logo-small" />
+        <h2>You have already registered.</h2>
+      </div>
+    );
+  }
 
   return (
     <div className="register-container">
