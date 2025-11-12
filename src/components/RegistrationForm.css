@@ -1,164 +1,146 @@
 body {
-    background-color: #f3f5fa;
-    margin: 0;
-    font-family: "Segoe UI", sans-serif;
-  }
-  
-  .register-container {
-    text-align: center;
-  }
-  
-  /* HEADER - Mobile friendly */
-  .header {
-    width: 100%;
-    background: none;
-    text-align: center;
-    padding: 10px 0;
-  }
-  
+  background-color: #f3f5fa;
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.register-container {
+  text-align: center;
+}
+
+/* HEADER */
+.header {
+  width: 100%;
+  background: none;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.logo-small {
+  width: 95%;
+  max-width: 360px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+/* Blue header line */
+.blue-line {
+  background-color: #002e7e;
+  color: white;
+  padding: 15px 8px;
+}
+
+.blue-line h1 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+/* Main form */
+.register-form {
+  width: 90%;
+  max-width: 420px;
+  margin: 25px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.register-form h2 {
+  font-size: 18px;
+  color: #002e7e;
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+
+/* Section headers */
+.section-header {
+  background-color: #002e7e;
+  color: white;
+  padding: 8px;
+  font-weight: bold;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  text-align: left;
+  font-size: 15px;
+}
+
+/* Input fields */
+.register-form input,
+.register-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+/* File upload */
+.register-form input[type="file"] {
+  background: #f3f5fa;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Note text */
+.note {
+  font-size: 13px;
+  color: #333;
+  margin-bottom: 12px;
+  text-align: left;
+  line-height: 1.5;
+}
+
+/* Submit button */
+.submit-btn {
+  background-color: #002e7e;
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  font-size: 17px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #001d5c;
+}
+
+/* Success or Already Registered */
+.already-registered {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.already-registered h2 {
+  color: #002e7e;
+  margin-top: 20px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 400px) {
   .logo-small {
-    width: 95%;
-    max-width: 360px;
-    height: auto;
-    object-fit: contain;
-    border-radius: 10px;
+    max-width: 240px;
   }
-  
-  /* Blue bar */
-  .blue-line {
-    background-color: #002e7e;
-    color: white;
-    padding: 18px 10px;
-  }
-  
+
   .blue-line h1 {
-    margin: 0;
-    font-size: 20px;
-    line-height: 1.4;
-  }
-  
-  .blue-line h2 {
-    margin-top: 5px;
-    font-size: 18px;
-    font-weight: 400;
-  }
-  
-  /* Form layout */
-  .register-form {
-    width: 90%;
-    max-width: 420px;
-    margin: 25px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .register-form h2 {
-    font-size: 20px;
-    color: #002e7e;
-    margin-bottom: 20px;
-  }
-  
-  /* Section headers */
-  .section-header {
-    background-color: #002e7e;
-    color: white;
-    padding: 8px;
-    font-weight: bold;
-    border-radius: 6px;
-    margin-bottom: 15px;
-    text-align: left;
     font-size: 16px;
   }
-  
-  /* Input fields */
-  .register-form input,
-  .register-form select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 12px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 15px;
+
+  .register-form {
+    width: 88%;
+    padding: 15px;
+    margin: 20px auto;
   }
-  
-  /* File upload */
-  .register-form input[type="file"] {
-    background: #f3f5fa;
-    padding: 8px;
-    cursor: pointer;
-    font-size: 14px;
+
+  .register-form h2 {
+    font-size: 16px;
   }
-  
-  /* Note text */
-  .note {
-    font-size: 13px;
-    color: #333;
-    margin-bottom: 12px;
-    text-align: left;
-  }
-  
-  /* Submit button */
-  .submit-btn {
-    background-color: #002e7e;
-    color: white;
-    border: none;
-    width: 100%;
-    padding: 12px;
-    font-size: 17px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s ease;
-  }
-  
-  .submit-btn:hover {
-    background-color: #001d5c;
-  }
-  
-  /* ✅ Mobile responsiveness */
-  @media (max-width: 400px) {
-    .logo-small {
-      max-width: 240px;
-    }
-  
-    .blue-line h1 {
-      font-size: 18px;
-    }
-  
-    .blue-line h2 {
-      font-size: 16px;
-    }
-  
-    /* 🔹 Smaller form on mobile */
-    .register-form {
-      width: 88%;
-      padding: 15px;
-      margin: 20px auto;
-    }
-  
-    .register-form h2 {
-      font-size: 18px;
-    }
-  }
-  
-  /* Larger screens */
-  @media (min-width: 600px) {
-    .logo-small {
-      max-width: 420px;
-    }
-  
-    .register-form {
-      max-width: 480px;
-      padding: 25px;
-    }
-  
-    .blue-line h1 {
-      font-size: 24px;
-    }
-  
-    .blue-line h2 {
-      font-size: 20px;
-    }
-  }
-  
+}
