@@ -1,38 +1,41 @@
 import React, { useEffect, useState } from "react";
-import hand from "../assets/fingerprint.webp"; // replace with your hand image
-import logo from "../assets/logo.webp"; // replace with your actual logo
+import hand from "../assets/fingerprint.webp"; // your hand image
+import logo from "../assets/logo.webp"; // your logo
 import "./FingerprintScan.css";
 
 export default function FingerprintScan({ onFinish }) {
   const fingers = ["Thumb", "Index", "Middle", "Ring", "Little"];
   const [scanned, setScanned] = useState([]);
   const [status, setStatus] = useState("Touch and Hold Each Finger (4 seconds)");
-  const [statusColor, setStatusColor] = useState("#0e800c"); // default green
+  const [statusColor, setStatusColor] = useState("#0e800c"); // green default
   const [done, setDone] = useState(false);
 
+  // Handle scanning one finger
   const handleScan = (finger) => {
     if (scanned.includes(finger)) return;
 
     setStatus(`Scanning ${finger}...`);
-    setStatusColor("#d4a017"); // amber/yellow while scanning
+    setStatusColor("#d4a017"); // amber while scanning
 
     setTimeout(() => {
-      setScanned([...scanned, finger]);
+      setScanned((prev) => [...prev, finger]);
       setStatus(`${finger} Scanned`);
       setStatusColor("#007a00"); // green after scanned
     }, 1200);
   };
 
+  // When all fingers scanned
   useEffect(() => {
     if (scanned.length === fingers.length) {
       setStatus("✅ All fingers scanned — Ready to Register");
-      setStatusColor("#002e7e"); // blue when finished
+      setStatusColor("#002e7e"); // blue when done
       setDone(true);
     }
   }, [scanned, fingers.length]);
 
+  // When finish or register clicked
   const handleFinish = () => {
-    // ✅ Save to localStorage so user can’t register again
+    // ✅ Lock the browser so user can’t register again
     localStorage.setItem("registeredUser", "true");
     onFinish();
   };
@@ -58,10 +61,10 @@ export default function FingerprintScan({ onFinish }) {
           {status}
         </p>
 
+        {/* Hand and Finger Spots */}
         <div className="hand-area">
           <img src={hand} alt="Hand" className="hand-img" />
 
-          {/* === FINGER SENSORS === */}
           <div
             className={`finger-spot ${scanned.includes("Thumb") ? "scanned" : ""}`}
             style={{ top: "162px", left: "50px" }}
@@ -93,15 +96,13 @@ export default function FingerprintScan({ onFinish }) {
           ></div>
         </div>
 
-        {/* Finish + Register Buttons */}
+        {/* Buttons appear when done */}
         {done && (
           <div className="button-area">
             <button className="finish-btn" onClick={handleFinish}>
               Finish
             </button>
-            <button className="register-btn" onClick={handleFinish}>
-              Register
-            </button>
+            
           </div>
         )}
       </div>
