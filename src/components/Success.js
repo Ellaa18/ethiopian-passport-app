@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import logo from "../assets/logo.webp";
 import "./Success.css";
 
 export default function Success() {
+  useEffect(() => {
+    // ✅ When user reaches this page, permanently lock registration in this browser
+    localStorage.setItem("registeredUser", "true");
+  }, []);
+
   return (
     <div className="success-container">
       {/* HEADER */}
@@ -24,7 +29,7 @@ export default function Success() {
 
         <h2>Registration Finished Successfully</h2>
         <p>
-          Your fingerprint and registration details have been recorded.  
+          Your fingerprint and registration details have been recorded. <br />
           You can now proceed or return to the home page.
         </p>
 
