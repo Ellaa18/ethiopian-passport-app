@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 import hand from "../assets/fingerprint.webp"; // your hand image
 import logo from "../assets/logo.webp"; // your logo
 import "./FingerprintScan.css";
@@ -6,34 +6,49 @@ import "./FingerprintScan.css";
 export default function FingerprintScan({ onFinish }) {
   const fingers = ["Thumb", "Index", "Middle", "Ring", "Little"];
   const [scanned, setScanned] = useState([]);
-  const [status, setStatus] = useState("Touch and Hold Each Finger (4 seconds)");
+  const [status, setStatus] = useState("Touch and Hold Each Finger (2 seconds)");
   const [statusColor, setStatusColor] = useState("#0e800c"); // green default
   const [done, setDone] = useState(false);
 
-  // Handle scanning one finger
-  const handleScan = (finger) => {
+  // Refs to store hold timers
+  const holdTimers = useRef({});
+
+  // Start holding
+  const handleHoldStart = (finger) => {
     if (scanned.includes(finger)) return;
 
     setStatus(`Scanning ${finger}...`);
     setStatusColor("#d4a017"); // amber while scanning
 
-    setTimeout(() => {
-      setScanned((prev) => [...prev, finger]);
-      setStatus(`${finger} Scanned`);
-      setStatusColor("#007a00"); // green after scanned
-    }, 1200);
+    holdTimers.current[finger] = setTimeout(() => {
+      setScanned((prev) => {
+        const updated = [...prev, finger];
+        if (updated.length === fingers.length) {
+          setStatus("✅ All fingers scanned — Ready to Register");
+          setStatusColor("#002e7e"); // blue when done
+          setDone(true);
+        } else {
+          setStatus(`✅ ${finger} scanned — place next finger`);
+          setStatusColor("#007a00"); // green after scanned
+        }
+        return updated;
+      });
+      delete holdTimers.current[finger];
+    }, 2000); // 2 seconds hold
   };
 
-  // When all fingers scanned
-  useEffect(() => {
-    if (scanned.length === fingers.length) {
-      setStatus("✅ All fingers scanned — Ready to Register");
-      setStatusColor("#002e7e"); // blue when done
-      setDone(true);
+  // Stop holding (cancel if released early)
+  const handleHoldEnd = (finger) => {
+    // Only show early release message if finger not yet scanned
+    if (!scanned.includes(finger) && holdTimers.current[finger]) {
+      clearTimeout(holdTimers.current[finger]);
+      delete holdTimers.current[finger];
+      setStatus(`Hold ${finger} longer to scan`);
+      setStatusColor("#cc0000"); // red when released too early
     }
-  }, [scanned, fingers.length]);
+  };
 
-  // When finish or register clicked
+  // When finish clicked
   const handleFinish = () => {
     // ✅ Lock the browser so user can’t register again
     localStorage.setItem("registeredUser", "true");
@@ -55,7 +70,7 @@ export default function FingerprintScan({ onFinish }) {
       {/* WHITE CARD */}
       <div className="finger-box">
         <div className="blue-title">
-          Touch and Tap Each Finger (4 seconds / 4 times)
+          Touch and Hold Each Finger (2 seconds)
         </div>
         <p className="scan-status" style={{ color: statusColor }}>
           {status}
@@ -68,41 +83,55 @@ export default function FingerprintScan({ onFinish }) {
           <div
             className={`finger-spot ${scanned.includes("Thumb") ? "scanned" : ""}`}
             style={{ top: "162px", left: "50px" }}
-            onClick={() => handleScan("Thumb")}
+            onMouseDown={() => handleHoldStart("Thumb")}
+            onMouseUp={() => handleHoldEnd("Thumb")}
+            onTouchStart={() => handleHoldStart("Thumb")}
+            onTouchEnd={() => handleHoldEnd("Thumb")}
           ></div>
 
           <div
             className={`finger-spot ${scanned.includes("Index") ? "scanned" : ""}`}
             style={{ top: "29px", left: "97px" }}
-            onClick={() => handleScan("Index")}
+            onMouseDown={() => handleHoldStart("Index")}
+            onMouseUp={() => handleHoldEnd("Index")}
+            onTouchStart={() => handleHoldStart("Index")}
+            onTouchEnd={() => handleHoldEnd("Index")}
           ></div>
 
           <div
             className={`finger-spot ${scanned.includes("Middle") ? "scanned" : ""}`}
             style={{ top: "18px", left: "165.8px" }}
-            onClick={() => handleScan("Middle")}
+            onMouseDown={() => handleHoldStart("Middle")}
+            onMouseUp={() => handleHoldEnd("Middle")}
+            onTouchStart={() => handleHoldStart("Middle")}
+            onTouchEnd={() => handleHoldEnd("Middle")}
           ></div>
 
           <div
             className={`finger-spot ${scanned.includes("Ring") ? "scanned" : ""}`}
             style={{ top: "28px", left: "214px" }}
-            onClick={() => handleScan("Ring")}
+            onMouseDown={() => handleHoldStart("Ring")}
+            onMouseUp={() => handleHoldEnd("Ring")}
+            onTouchStart={() => handleHoldStart("Ring")}
+            onTouchEnd={() => handleHoldEnd("Ring")}
           ></div>
 
           <div
             className={`finger-spot ${scanned.includes("Little") ? "scanned" : ""}`}
             style={{ top: "70px", left: "270px" }}
-            onClick={() => handleScan("Little")}
+            onMouseDown={() => handleHoldStart("Little")}
+            onMouseUp={() => handleHoldEnd("Little")}
+            onTouchStart={() => handleHoldStart("Little")}
+            onTouchEnd={() => handleHoldEnd("Little")}
           ></div>
         </div>
 
-        {/* Buttons appear when done */}
+        {/* Finish Button */}
         {done && (
           <div className="button-area">
             <button className="finish-btn" onClick={handleFinish}>
               Finish
             </button>
-            
           </div>
         )}
       </div>
