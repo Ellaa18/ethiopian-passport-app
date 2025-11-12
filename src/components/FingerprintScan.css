@@ -98,12 +98,12 @@ body {
 }
 
 .finger-spot:hover {
-  background-color: rgba(212, 211, 210, 0.837);
+  background-color:oblique;
 }
 
 .finger-spot.scanned {
-  background-color: green;
-  border: 2px solid #007a00;
+  background-color: oblique;
+  border: 2px solid oblique;
 }
 
 /* BUTTONS */

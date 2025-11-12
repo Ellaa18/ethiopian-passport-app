@@ -31,6 +31,12 @@ export default function FingerprintScan({ onFinish }) {
     }
   }, [scanned, fingers.length]);
 
+  const handleFinish = () => {
+    // ✅ Save to localStorage so user can’t register again
+    localStorage.setItem("registeredUser", "true");
+    onFinish();
+  };
+
   return (
     <div className="finger-container">
       {/* HEADER */}
@@ -90,10 +96,10 @@ export default function FingerprintScan({ onFinish }) {
         {/* Finish + Register Buttons */}
         {done && (
           <div className="button-area">
-            <button className="finish-btn" onClick={onFinish}>
+            <button className="finish-btn" onClick={handleFinish}>
               Finish
             </button>
-            <button className="register-btn" onClick={onFinish}>
+            <button className="register-btn" onClick={handleFinish}>
               Register
             </button>
           </div>
