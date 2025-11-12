@@ -17,7 +17,7 @@ body {
 }
 
 .logo-small {
-  width: 95%;
+  width: 100%;
   max-width: 360px;
   height: auto;
   object-fit: contain;
@@ -43,22 +43,23 @@ body {
   width: 90%;
   max-width: 420px;
   margin: 25px auto;
-  background: white;
+  background: rgba(242, 241, 241, 0.904);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
 .register-form h2 {
-  font-size: 18px;
-  color: #002e7e;
+  font-size: 21px;
+  color: #090909;
   margin-bottom: 18px;
   font-weight: 600;
+  
 }
 
 /* Section headers */
 .section-header {
-  background-color: #002e7e;
+  background-color: #032052;
   color: white;
   padding: 8px;
   font-weight: bold;
@@ -77,6 +78,7 @@ body {
   border-radius: 6px;
   border: 1px solid #ccc;
   font-size: 15px;
+  
 }
 
 /* File upload */
@@ -85,6 +87,7 @@ body {
   padding: 8px;
   cursor: pointer;
   font-size: 14px;
+  
 }
 
 /* Note text */
@@ -98,7 +101,7 @@ body {
 
 /* Submit button */
 .submit-btn {
-  background-color: #002e7e;
+  background-color: #032561;
   color: white;
   border: none;
   width: 100%;
@@ -110,7 +113,7 @@ body {
 }
 
 .submit-btn:hover {
-  background-color: #001d5c;
+  background-color: #0742c3;
 }
 
 /* Success or Already Registered */
@@ -142,5 +145,6 @@ body {
 
   .register-form h2 {
     font-size: 16px;
+    
   }
 }

@@ -88,10 +88,10 @@ body {
 /* CLICKABLE SPOTS */
 .finger-spot {
   position: absolute;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background-color: rgba(172, 172, 173, 0.3);
+  width: 47px;
+  height: 47px;
+  border-radius: 60%;
+  background-color: rgba(226, 226, 228, 0.3);
   border: 2px solid #a6a7a7;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -142,7 +142,7 @@ body {
   }
 
   .hand-img {
-    max-width: 300px;
+    max-width: 330px;
   }
 
   .finger-spot {
