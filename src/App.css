@@ -28,7 +28,6 @@ body {
   50% {
     transform: translateY(-8px) scale(1);
   }
- 
 }
 
 .animated-img {
@@ -61,17 +60,16 @@ body {
   padding: 15px 5px;
   text-align: center;
 }
-.header-text{ 
+.header-text { 
   text-align: center;
   font-size: 25px;
   padding: 15px 0;
   margin: 0;
   line-height: 1.6;
   color: #063077;
-
 }
 .header-text h1 {
-  font-size: 30px;
+  font-size: 24px;
   margin: 0;
   line-height: 1.4;
 }
@@ -101,7 +99,7 @@ body {
 }
 .main-card {
   width: 95%;
-  background: #efffff;
+  background: #fcfcfc;
   padding: 18px;
   border-radius: 18px;
   text-align: center;
@@ -109,6 +107,7 @@ body {
   margin-bottom: 18px;
   border: 1px solid #d0d0d0;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* ✅ added subtle shadow */
 }
 .main-card h3 {
   color: #041f4f;
@@ -123,6 +122,7 @@ body {
   background-color: #2260cb;
   color: white;
   transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); /* ✅ stronger hover shadow */
 }
 
 /* BUTTON */
@@ -145,7 +145,6 @@ body {
   width: 100%;
   background: white;
   text-align: center;
-  
   padding: 20px 10px;
 }
 .how-to-apply h2 {
@@ -160,13 +159,13 @@ body {
   border: 1px solid #d0d0d0;
   background: #f8f8f9;
   border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12); /* ✅ added shadow */
 }
 .apply-card img {
   width: 80%;
   max-width: 270px;
   height: auto;
   border-radius: 8px;
- 
 }
 .apply-card h3 {
   color: #0a0a0a;
@@ -203,6 +202,7 @@ body {
   margin: 8px;
   padding: 15px 10px;
   border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(255, 255, 255, 0.15); /* ✅ soft white glow for footer */
 }
 .footer-card h3 {
   color: #faf9f6;
