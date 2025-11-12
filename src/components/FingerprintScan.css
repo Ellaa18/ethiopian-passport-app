@@ -88,8 +88,8 @@ body {
 /* CLICKABLE SPOTS */
 .finger-spot {
   position: absolute;
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   background-color: oblique; /* light gray */
   border: 2px solid oblique;

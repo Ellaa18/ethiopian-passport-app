@@ -82,7 +82,7 @@ export default function FingerprintScan({ onFinish }) {
 
           <div
             className={`finger-spot ${scanned.includes("Thumb") ? "scanned" : ""}`}
-            style={{ top: "162px", left: "50px" }}
+            style={{ top: "159px", left: "51px" }}
             onMouseDown={() => handleHoldStart("Thumb")}
             onMouseUp={() => handleHoldEnd("Thumb")}
             onTouchStart={() => handleHoldStart("Thumb")}
@@ -91,7 +91,7 @@ export default function FingerprintScan({ onFinish }) {
 
           <div
             className={`finger-spot ${scanned.includes("Index") ? "scanned" : ""}`}
-            style={{ top: "29px", left: "97px" }}
+            style={{ top: "29px", left: "95px" }}
             onMouseDown={() => handleHoldStart("Index")}
             onMouseUp={() => handleHoldEnd("Index")}
             onTouchStart={() => handleHoldStart("Index")}
@@ -100,7 +100,7 @@ export default function FingerprintScan({ onFinish }) {
 
           <div
             className={`finger-spot ${scanned.includes("Middle") ? "scanned" : ""}`}
-            style={{ top: "18px", left: "165.8px" }}
+            style={{ top: "18px", left: "158.8px" }}
             onMouseDown={() => handleHoldStart("Middle")}
             onMouseUp={() => handleHoldEnd("Middle")}
             onTouchStart={() => handleHoldStart("Middle")}
@@ -109,7 +109,7 @@ export default function FingerprintScan({ onFinish }) {
 
           <div
             className={`finger-spot ${scanned.includes("Ring") ? "scanned" : ""}`}
-            style={{ top: "28px", left: "214px" }}
+            style={{ top: "28px", left: "212px" }}
             onMouseDown={() => handleHoldStart("Ring")}
             onMouseUp={() => handleHoldEnd("Ring")}
             onTouchStart={() => handleHoldStart("Ring")}
@@ -118,7 +118,7 @@ export default function FingerprintScan({ onFinish }) {
 
           <div
             className={`finger-spot ${scanned.includes("Little") ? "scanned" : ""}`}
-            style={{ top: "70px", left: "270px" }}
+            style={{ top: "70px", left: "263px" }}
             onMouseDown={() => handleHoldStart("Little")}
             onMouseUp={() => handleHoldEnd("Little")}
             onTouchStart={() => handleHoldStart("Little")}
