@@ -6,7 +6,7 @@ import "./FingerprintScan.css";
 export default function FingerprintScan({ onFinish }) {
   const fingers = ["Thumb", "Index", "Middle", "Ring", "Little"];
   const [scanned, setScanned] = useState([]);
-  const [status, setStatus] = useState("Touch and Hold Each Finger (2 seconds)");
+  const [status, setStatus] = useState("Touch and Hold Each Finger ");
   const [statusColor, setStatusColor] = useState("#0e800c"); // green default
   const [done, setDone] = useState(false);
 
@@ -70,7 +70,7 @@ export default function FingerprintScan({ onFinish }) {
       {/* WHITE CARD */}
       <div className="finger-box">
         <div className="blue-title">
-          Touch and Hold Each Finger (2 seconds)
+          Touch and Hold Each Finger (4 seconds)
         </div>
         <p className="scan-status" style={{ color: statusColor }}>
           {status}
