@@ -143,8 +143,13 @@ export default function RegistrationForm({ onSubmit }) {
             placeholder="+2519XXXXXXXX"
           />
 
-          <label>Email</label>
-          <input type="email" name="email" onChange={handleChange} required />
+          <label>Email (Optional)</label>
+          <input
+            type="email"
+            name="email"
+            onChange={handleChange}
+            placeholder="example@gmail.com"
+          />
 
           <label>Passport Type</label>
           <select name="passportType" onChange={handleChange} required>
