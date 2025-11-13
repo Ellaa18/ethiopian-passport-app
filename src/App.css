@@ -288,3 +288,83 @@ body {
   background-color: #f9f9f9;
 }
 
+/* Hamburger menu */
+.menu-icon {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.menu-dropdown {
+  display: flex;
+  flex-direction: column;
+  background-color: #0033cc;
+  color: white;
+  text-align: left;
+  padding: 10px 20px;
+  animation: slideDown 0.3s ease;
+}
+
+.menu-dropdown p {
+  padding: 10px 0;
+  margin: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+.menu-dropdown p:hover {
+  background-color: #002080;
+}
+
+/* Slide-down animation */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Map left-to-right motion */
+@keyframes moveRight {
+  0% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  100% { transform: translateX(-10px); }
+}
+
+.slide-right {
+  animation: moveRight 5s ease-in-out infinite;
+}
+/* Logo ABOVE blue bar */
+.logo-header {
+  width: 100%;
+  text-align: center;
+  background: none;
+  margin-top: 10px;
+}
+.logo-header .logo-small {
+  width: 95%;
+  max-width: 360px;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Blue bar BELOW logo with menu icon inside */
+.header-bar {
+  display: flex;
+  align-items: center;
+  background-color: #0033cc;
+  padding: 15px 0;
+  position: relative;
+  width: 100%;
+}
+
+/* ☰ icon inside blue line, on left */
+.menu-icon {
+  position: absolute;
+  left: 20px;
+  top: 1px;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
