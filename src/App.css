@@ -223,6 +223,7 @@ body {
   width: 60px;
   border-radius: 6px;
   height: auto;
+  
 }
 
 /* RESPONSIVE FIXES */
@@ -235,3 +236,55 @@ body {
     width: 80%;
   }
 }
+.payment-section {
+  text-align: center;
+  margin: 40px auto;
+}
+
+.payment-img {
+  width: 220px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.payment-img:hover {
+  transform: scale(1.05);
+}
+
+.payment-table {
+  margin-top: 20px;
+  display: inline-block;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.payment-table h2 {
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.payment-table table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 16px;
+}
+
+.payment-table th,
+.payment-table td {
+  border: 1px solid #ddd;
+  padding: 10px 15px;
+  text-align: left;
+}
+
+.payment-table th {
+  background-color: #eaf4ff;
+  color: #000;
+  font-weight: 600;
+}
+
+.payment-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+

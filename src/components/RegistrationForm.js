@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import logo from "../assets/logo.webp";
 import "./RegistrationForm.css";
 
@@ -21,17 +21,6 @@ export default function RegistrationForm({ onSubmit }) {
     birthCertificate: null,
   });
 
-  const [isRegistered, setIsRegistered] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-
-  // ✅ Check if user has already completed registration (Success page reached)
-  useEffect(() => {
-    const alreadyRegistered = localStorage.getItem("registeredUser");
-    if (alreadyRegistered === "true") {
-      setIsRegistered(true);
-    }
-  }, []);
-
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     setFormData({ ...formData, [name]: files ? files[0] : value });
@@ -39,74 +28,28 @@ export default function RegistrationForm({ onSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // ✅ Block form submission if already registered
-    if (isRegistered) {
-      alert("You have already completed registration.");
-      return;
-    }
-
-    // Temporarily store form data before fingerprint step
     localStorage.setItem("pendingRegistration", JSON.stringify(formData));
-
-    setSubmitted(true);
-
-    // Proceed to fingerprint page
     onSubmit(formData);
   };
 
-  // ✅ If user already registered, show message and block access
-  if (isRegistered && !submitted) {
-    return (
-      <div className="already-registered">
-        <img src={logo} alt="Logo" className="logo-small" />
-        <h2>You have already registered before.</h2>
-       
-      </div>
-    );
-  }
-
   return (
     <div className="register-container">
-      {/* HEADER */}
       <header className="header">
         <img src={logo} alt="Logo" className="logo-small" />
       </header>
 
-      {/* Blue header line */}
       <div className="blue-line">
         <h1>IMMIGRATION AND CITIZENSHIP SERVICES</h1>
       </div>
 
-      {/* FORM */}
       <form className="register-form" onSubmit={handleSubmit}>
         <h2>Welcome to Ethiopian Passport Services</h2>
 
-        {/* PERSONAL INFO */}
         <div className="section">
           <div className="section-header">Personal Information</div>
-
-          <input
-            type="text"
-            name="firstName"
-            placeholder="First Name"
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="text"
-            name="fatherName"
-            placeholder="Father Name"
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="text"
-            name="grandfatherName"
-            placeholder="Grandfather Name"
-            onChange={handleChange}
-            required
-          />
+          <input type="text" name="firstName" placeholder="First Name" onChange={handleChange} required />
+          <input type="text" name="fatherName" placeholder="Father Name" onChange={handleChange} required />
+          <input type="text" name="grandfatherName" placeholder="Grandfather Name" onChange={handleChange} required />
 
           <label>Date of Birth</label>
           <input type="date" name="dob" onChange={handleChange} required />
@@ -118,82 +61,48 @@ export default function RegistrationForm({ onSubmit }) {
             <option value="Female">Female</option>
           </select>
 
-          <input
-            type="text"
-            name="phone"
-            placeholder="Phone Number"
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            onChange={handleChange}
-            required
-          />
+          <input type="text" name="phone" placeholder="Phone Number" onChange={handleChange} required />
+          <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
 
           <label>Passport Type</label>
           <select name="passportType" onChange={handleChange} required>
-            <option value="new">new</option>
-            <option value="renewal">renewal</option>
+            <option value="Urgent new">Urgent new</option>
+            <option value="Expired passport to renewal">Expired passport to renewal</option>
+            <option value="Damaged passport replacement">Damaged passport replacement</option>
+            <option value="Lost passport">Lost passport</option>
           </select>
 
           <label>Appointment Day</label>
           <select name="appointmentDay" onChange={handleChange} required>
             <option value="regular">regular</option>
-            <option value="urgent">urgent</option>
+            <option value="2 Days">2 Days</option>
+            <option value="5 Days">5 Days</option>
           </select>
         </div>
 
-        {/* ADDRESS INFO */}
         <div className="section">
           <div className="section-header">Address Information</div>
-
-          <input
-            type="text"
-            name="region"
-            placeholder="Region"
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="text"
-            name="city"
-            placeholder="City"
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="text"
-            name="kebele"
-            placeholder="Kebele"
-            onChange={handleChange}
-            required
-          />
+          <input type="text" name="region" placeholder="Region" onChange={handleChange} required />
+          <input type="text" name="city" placeholder="City" onChange={handleChange} required />
+          <input type="text" name="kebele" placeholder="Kebele" onChange={handleChange} required />
         </div>
 
-        {/* ATTACHMENTS */}
         <div className="section">
           <div className="section-header">Attachment Information</div>
           <p className="note">
-            <strong>Note:</strong> If your selected passport type is not{" "}
-            <strong>"new"</strong>, uploading your previous passport is required.
+            <strong>Note:</strong> If your selected passport type is not <strong>"new"</strong>,
+            uploading your previous passport is required.
           </p>
 
           <label>Passport File</label>
           <input type="file" name="passportFile" onChange={handleChange} />
-
           <label>ID File</label>
           <input type="file" name="idFile" onChange={handleChange} />
-
           <label>Birth Certificate</label>
           <input type="file" name="birthCertificate" onChange={handleChange} />
         </div>
 
-        <button type="submit" className="submit-btn">
-          Submit Application
-        </button>
+        <button type="submit" className="submit-btn">Submit Application</button>
       </form>
     </div>
   );

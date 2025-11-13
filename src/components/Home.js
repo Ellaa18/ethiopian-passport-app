@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../App.css";
 import cbe from "../assets/cbe.webp";
 import expired from "../assets/expired.webp";
@@ -8,11 +8,14 @@ import logo from "../assets/logo.webp";
 import map from "../assets/map.webp";
 import mastercard from "../assets/mastercard.webp";
 import passport from "../assets/passport.webp";
+import pay from "../assets/pay.webp"; // ✅ new image you mentioned
 import telebirr from "../assets/telebirr.webp";
 import visa from "../assets/visacard.webp";
 import yellowCard from "../assets/yellow-card.webp";
 
 export default function Home({ onStart }) {
+  const [showTable, setShowTable] = useState(false);
+
   useEffect(() => {
     const cards = document.querySelectorAll(".fade-in");
     const observer = new IntersectionObserver(
@@ -37,12 +40,10 @@ export default function Home({ onStart }) {
       </header>
 
       {/* BLUE BAR WITH TEXT */}
-      <div className="blue-line">
-        
-      </div>
+      <div className="blue-line"></div>
       <div className="header-text">
-          <h1>Welcome to Ethiopian Passport Services</h1>
-        </div>
+        <h1>Welcome to Ethiopian Passport Services</h1>
+      </div>
 
       {/* MAP IMAGE */}
       <div className="map-section fade-in">
@@ -87,14 +88,14 @@ export default function Home({ onStart }) {
           <img src={expired} alt="Expired Passport" className="animated-img" />
           <h3>Change of Passport Data</h3>
           <p>Applicants requesting data change must meet the requirements.</p>
-          <button>See More</button>
+          <button onClick={onStart}>See More</button> {/* ✅ Goes to register */}
         </div>
 
         <div className="apply-card fade-in">
           <img src={flag} alt="Flag" className="animated-img" />
           <h3>Urgent Service</h3>
           <p>Urgent applicants must meet all requirements before submission.</p>
-          <button>See More</button>
+          <button onClick={onStart}>See More</button> {/* ✅ Goes to register */}
         </div>
 
         <div className="apply-card fade-in">
@@ -118,6 +119,57 @@ export default function Home({ onStart }) {
         </div>
       </section>
 
+      {/* ✅ PAYMENT METHODS SECTION (Before Footer) */}
+      <section className="payment-section fade-in">
+        <img
+          src={pay}
+          alt="Payment Methods"
+          className="clickable payment-img"
+          onClick={() => setShowTable(!showTable)}
+        />
+        {showTable && (
+          <div className="payment-table fade-in">
+            <h2>Urgent New Passport Application – Requirements</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Passport Type</th>
+                  <th>Regular</th>
+                  <th>2 Days</th>
+                  <th>5 Days</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Urgent New</td>
+                  <td>5,000 birr</td>
+                  <td>25,000 birr</td>
+                  <td>20,000 birr</td>
+                </tr>
+                <tr>
+                  <td>Expired passport to renewal</td>
+                  <td>5,000 birr</td>
+                  <td>25,000 birr</td>
+                  <td>20,000 birr</td>
+                </tr>
+                <tr>
+                  <td>Damaged passport replacement</td>
+                  <td>5,000 birr</td>
+                  <td>25,000 birr</td>
+                  <td>20,000 birr</td>
+                </tr>
+                <tr>
+                  <td>Lost passport</td>
+                  <td>5,000 birr</td>
+                  <td>25,000 birr</td>
+                  <td>20,000 birr</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        )}
+      </section>
+
       {/* FOOTER */}
       <footer className="footer">
         <div className="footer-card fade-in">
@@ -137,8 +189,11 @@ export default function Home({ onStart }) {
         <div className="footer-card fade-in">
           <h3>Help and Support</h3>
           <div className="payment-images">
-            {/* ✅ Updated CBE and Telebirr links */}
-            <a href="https://combanketh.et/ways-of-banking/cbe-birr?csrt=1862859040642234614" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://combanketh.et/ways-of-banking/cbe-birr?csrt=1862859040642234614"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={cbe} alt="CBE Mobile Banking" />
             </a>
             <a href="https://www.ethiotelecom.et/telebirr/" target="_blank" rel="noopener noreferrer">
@@ -151,8 +206,8 @@ export default function Home({ onStart }) {
               <img src={mastercard} alt="Mastercard" />
             </a>
             <footer className="footer">
-        <p>© 2025 Ethiopian Passport Service. All rights reserved.</p>
-      </footer>
+              <p>© 2025 Ethiopian Passport Service. All rights reserved.</p>
+            </footer>
           </div>
         </div>
       </footer>

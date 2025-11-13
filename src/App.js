@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import FingerprintScan from "./components/FingerprintScan";
 import Home from "./components/Home";
+import PaymentPage from "./components/PaymentPage";
 import RegistrationForm from "./components/RegistrationForm";
 import Success from "./components/Success";
 
@@ -20,15 +21,15 @@ export default function App() {
       {page === "home" && <Home onStart={() => goTo("form")} />}
 
       {page === "form" && (
-        <RegistrationForm
-          onSubmit={(data) => goTo("finger", data)}
-        />
+        <RegistrationForm onSubmit={(data) => goTo("finger", data)} />
       )}
 
       {page === "finger" && (
-        <FingerprintScan
-          onFinish={() => goTo("success")}
-        />
+        <FingerprintScan onGoToPayment={() => goTo("payment")} />
+      )}
+
+      {page === "payment" && (
+        <PaymentPage onNext={() => goTo("success")} formData={formData} />
       )}
 
       {page === "success" && <Success formData={formData} />}
