@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../assets/logo.webp";
 import "./RegistrationForm.css";
 
@@ -9,7 +9,7 @@ export default function RegistrationForm({ onSubmit }) {
     grandfatherName: "",
     dob: "",
     gender: "",
-    phone: "+251", // default prefix but editable
+    phone: "+251",
     countryCode: "+251",
     email: "",
     passportType: "new",
@@ -22,6 +22,16 @@ export default function RegistrationForm({ onSubmit }) {
     birthCertificate: null,
   });
 
+  const [isBlocked, setIsBlocked] = useState(false);
+
+  // ✅ Check if user already registered successfully
+  useEffect(() => {
+    const registered = localStorage.getItem("registeredUser");
+    if (registered === "true") {
+      setIsBlocked(true);
+    }
+  }, []);
+
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     setFormData({ ...formData, [name]: files ? files[0] : value });
@@ -31,29 +41,54 @@ export default function RegistrationForm({ onSubmit }) {
   const handlePhoneChange = (e) => {
     let input = e.target.value.replace(/\s/g, ""); // remove spaces
 
-    // if user types "09" at start, convert it to "+2519..."
+    // Convert "09" start → "+2519..."
     if (input.startsWith("09")) {
       input = "+251" + input.slice(1);
     }
 
-    // only allow numbers and + at start
-    if (!/^\+?[0-9]*$/.test(input)) {
-      return; // ignore invalid characters
-    }
+    // Allow only + and digits
+    if (!/^\+?[0-9]*$/.test(input)) return;
 
-    // Limit total length to 13 (e.g. +251911223344)
-    if (input.length > 13) {
-      input = input.slice(0, 13);
-    }
+    // Limit to 13 chars (+2519XXXXXXXX)
+    if (input.length > 13) input = input.slice(0, 13);
 
     setFormData({ ...formData, phone: input });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (isBlocked) {
+      alert("⚠️ You have already registered successfully and cannot register again.");
+      return;
+    }
+
     localStorage.setItem("pendingRegistration", JSON.stringify(formData));
     onSubmit(formData);
   };
+
+  // ✅ If blocked, show message
+  if (isBlocked) {
+    return (
+      <div className="register-container">
+        <header className="header">
+          <img src={logo} alt="Logo" className="logo-small" />
+        </header>
+        <div className="blue-line">
+          <h1>IMMIGRATION AND CITIZENSHIP SERVICES</h1>
+        </div>
+        <div className="register-form">
+          <h2 style={{ color: "red", textAlign: "center" }}>
+            ⚠️ You have already registered successfully.
+          </h2>
+          <p style={{ textAlign: "center" }}>
+            You cannot register again using this browser.  
+            Please contact support if you need to make changes.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="register-container">
