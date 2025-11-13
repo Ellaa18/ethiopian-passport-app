@@ -25,7 +25,7 @@ export default function PaymentPage({ onNext }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputCode !== code) {
-      setError("❌ Invalid payment code. Please try again.");
+      setError(`❌ Wrong code. Your code is: ${code}`);
       setShowNext(false);
     } else {
       setError("");
@@ -44,9 +44,10 @@ export default function PaymentPage({ onNext }) {
       <div className="payment-box">
         <h2>Welcome to Ethiopian Passport Services</h2>
         <h3>Enter Your Payment Code</h3>
-<p>Please eneter the transaction ID (e.g. TXN-ET12345) </p>
+        <p>Please enter the transaction ID (e.g. TXN-ET12345)</p>
         <p>
-          After completing the payment, please enter the transaction code you received to finish the process.
+          After completing the payment, please enter the transaction code you
+          received to finish the process.
           <br />
           <strong>Thank you!</strong>
         </p>
@@ -80,7 +81,7 @@ export default function PaymentPage({ onNext }) {
             Your total payment is: <strong>{amount} ብር</strong>
           </p>
           <p className="amharic-text">
-          ማንኛዉንም ክፍያ ለመፈጸም ቀጥሎ የሚመጣሎትን የባንክ አካውንት(CBE) በመንካት ማየት ይችላሉ::
+            ማንኛዉንም ክፍያ ለመፈጸም ቀጥሎ የሚመጣሎትን የባንክ አካውንት(CBE) በመንካት ማየት ይችላሉ።
           </p>
         </div>
 
@@ -94,7 +95,9 @@ export default function PaymentPage({ onNext }) {
           <img
             src={telebirr}
             alt="Telebirr"
-            onClick={() => setPaymentMsg("📱 Telebirr: Temporarily unavailable")}
+            onClick={() =>
+              setPaymentMsg("📱 Telebirr: Temporarily unavailable")
+            }
           />
         </div>
 
