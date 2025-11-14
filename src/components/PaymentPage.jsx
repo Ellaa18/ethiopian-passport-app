@@ -9,7 +9,7 @@ export default function PaymentPage({ onNext }) {
   const [inputCode, setInputCode] = useState("");
   const [error, setError] = useState("");
   const [paymentMsg, setPaymentMsg] = useState("");
-  const [showNext, setShowNext] = useState(false);
+  const [showNext, setShowNext] = useState(true); // 🔥 CHANGED: show Next button on page load
   const [amount, setAmount] = useState(0);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function PaymentPage({ onNext }) {
     e.preventDefault();
     if (inputCode !== code) {
       setError(`❌ Wrong code. Your code is: ${code}`);
-      setShowNext(false);
+      setShowNext(true); // still show Next even if wrong
     } else {
       setError("");
       setPaymentMsg("✅ Your code is correct. You may proceed.");
@@ -59,7 +59,7 @@ export default function PaymentPage({ onNext }) {
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="Enter your code (e.g. TXN-ET12345)"
+            placeholder="Enter your code (e.g. TXN-ETxxxxx)"
             value={inputCode}
             onChange={(e) => setInputCode(e.target.value)}
             required
@@ -78,7 +78,7 @@ export default function PaymentPage({ onNext }) {
         <div className="payment-info">
           <h3>Payment Instructions</h3>
           <p>
-            Your total payment is: <strong>{amount} ብር</strong>
+            Your total payment is: 💲<strong>{amount} ብር</strong>
           </p>
           <p className="amharic-text">
             ማንኛዉንም ክፍያ ለመፈጸም ቀጥሎ የሚመጣሎትን የባንክ አካውንት(CBE) በመንካት ማየት ይችላሉ።
@@ -106,7 +106,7 @@ export default function PaymentPage({ onNext }) {
           <p className="payment-msg">{paymentMsg}</p>
         )}
 
-        {/* Next button after successful code */}
+        {/* Next button always visible now */}
         {showNext && (
           <button className="next-btn" onClick={onNext}>
             Next
