@@ -9,7 +9,7 @@ export default function PaymentPage({ onNext }) {
   const [inputCode, setInputCode] = useState("");
   const [error, setError] = useState("");
   const [paymentMsg, setPaymentMsg] = useState("");
-  const [showNext, setShowNext] = useState(true); // 🔥 CHANGED: show Next button on page load
+  const [showNext, setShowNext] = useState(true);
   const [amount, setAmount] = useState(0);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function PaymentPage({ onNext }) {
     e.preventDefault();
     if (inputCode !== code) {
       setError(`❌ Wrong code. Your code is: ${code}`);
-      setShowNext(true); // still show Next even if wrong
+      setShowNext(true);
     } else {
       setError("");
       setPaymentMsg("✅ Your code is correct. You may proceed.");
@@ -90,8 +90,13 @@ export default function PaymentPage({ onNext }) {
           <img
             src={cbe}
             alt="CBE"
-            onClick={() => setPaymentMsg("🏦 CBE <br/> Account holder /የመለያ ባለቤት: Etsehiwot Tadesse<br/>Account number /የመለያ ቁጥር: 1000722939267"
-        )}
+            onClick={() =>
+              setPaymentMsg(
+                "🏦 CBE<br/>" +
+                  "Account holder /የመለያ ባለቤት: Etsehiwot Tadesse<br/>" +
+                  "Account number /የመለያ ቁጥር: 1000722939267"
+              )
+            }
           />
           <img
             src={telebirr}
@@ -104,10 +109,13 @@ export default function PaymentPage({ onNext }) {
 
         {/* Message shown BELOW the images */}
         {paymentMsg && !paymentMsg.includes("✅") && (
-          <p className="payment-msg">{paymentMsg}</p>
+          <p
+            className="payment-msg"
+            dangerouslySetInnerHTML={{ __html: paymentMsg }}
+          ></p>
         )}
 
-        {/* Next button always visible now */}
+        {/* Next button */}
         {showNext && (
           <button className="next-btn" onClick={onNext}>
             Next
