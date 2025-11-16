@@ -90,7 +90,7 @@ export default function PaymentPage({ onNext }) {
           <img
             src={cbe}
             alt="CBE"
-            onClick={() => setPaymentMsg("🏦 CBE \n Account holder /የመለያ ባለቤት: Etsehiwot Tadesse\nAccount number /የመለያ ቁጥር: 1000722939267"
+            onClick={() => setPaymentMsg("🏦 CBE <br/> Account holder /የመለያ ባለቤት: Etsehiwot Tadesse<br/>Account number /የመለያ ቁጥር: 1000722939267"
         )}
           />
           <img
